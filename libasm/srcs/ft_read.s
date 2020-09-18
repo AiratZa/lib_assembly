@@ -1,15 +1,22 @@
+%define sys_read 0x2000003 ;system call number for read
+
 section .text
-global _ft_strlen
+	global _ft_read
+	extern ___error
 
-_ft_strlen:
-	mov rax, rdi
+_ft_read:
+	xor rax, rax
 
-.loop:
-	cmp byte [rax], 0
-	je .ret
-	inc rax
-	jmp .loop
+.read:
+	mov rax, sys_read
+	syscall
+	jc .err
+	ret
 
-.ret:
-	sub rax, rdi
+.err:
+	push rax
+	call ___error
+	pop rdx
+	mov [rax], edx
+	mov rax, -1
 	ret

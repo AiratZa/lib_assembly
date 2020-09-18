@@ -1,15 +1,19 @@
 section .text
-global _ft_strcmp
+	global _ft_strcmp
 
 _ft_strcmp:
-	mov rax, rdi
+	xor rax, rax
 
-.loop:
-	cmp byte [rax], 0
-	je .ret
-	inc rax
-	jmp .loop
+.next_iter:
+	mov al, byte [rdi]
+	mov dl, byte [rsi]
+	sub rax, rdx
+	jnz .end
+	cmp dl, 0
+	je	.end
+	inc rdi
+	inc rsi
+	jmp .next_iter
 
-.ret:
-	sub rax, rdi
+.end:
 	ret

@@ -1,15 +1,21 @@
+%define sys_write 0x2000004 ;system call number for write
 section .text
-global _ft_write
+	global _ft_write
+	extern ___error
 
 _ft_write:
-	mov rax, rdi
+	xor rax, rax
 
-.loop:
-	cmp byte [rax], 0
-	je .ret
-	inc rax
-	jmp .loop
+.write:
+	mov rax, sys_write
+	syscall
+	jc .err
+	ret
 
-.ret:
-	sub rax, rdi
+.err:
+	push rax
+	call ___error
+	pop rdx
+	mov [rax], edx
+	mov rax, -1
 	ret

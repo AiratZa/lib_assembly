@@ -1,15 +1,17 @@
 section .text
-global _ft_strcpy
+	global _ft_strcpy
 
 _ft_strcpy:
 	mov rax, rdi
 
-.loop:
-	cmp byte [rax], 0
-	je .ret
-	inc rax
-	jmp .loop
+.next_iter:
+	mov dl, byte [rsi]
+	mov byte [rdi], dl
+	cmp dl, 0
+	je .end
+	inc rdi
+	inc rsi
+	jmp .next_iter
 
-.ret:
-	sub rax, rdi
+.end:
 	ret
