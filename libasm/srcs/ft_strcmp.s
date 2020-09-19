@@ -2,18 +2,21 @@ section .text
 	global _ft_strcmp
 
 _ft_strcmp:
+	push rdx
 	xor rax, rax
+	xor rdx, rdx
 
 .next_iter:
 	mov al, byte [rdi]
 	mov dl, byte [rsi]
 	sub rax, rdx
-	jnz .end
+	jnz .ret
 	cmp dl, 0
-	je	.end
+	je	.ret
 	inc rdi
 	inc rsi
 	jmp .next_iter
 
-.end:
+.ret:
+	pop rdx
 	ret

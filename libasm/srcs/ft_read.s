@@ -10,10 +10,10 @@ _ft_read:
 .read:
 	mov rax, sys_read
 	syscall
-	jc .err
+	jc .error
 	ret
 
-.err:
+.error:
 	push rax
 	call ___error
 	pop rdx

@@ -8,10 +8,10 @@ _ft_strcpy:
 	mov dl, byte [rsi]
 	mov byte [rdi], dl
 	cmp dl, 0
-	je .end
+	je .ret
 	inc rdi
 	inc rsi
 	jmp .next_iter
 
-.end:
+.ret:
 	ret

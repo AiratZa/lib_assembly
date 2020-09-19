@@ -38,5 +38,5 @@ INCLUDES = ./
 
 TEST_ENTRY_POINT = main.c
 
-test: $(NAME)
+test: $(NAME) main.c
 	$(C_CMPLR) $(GCC_FLAGS) $(TEST_ENTRY_POINT) -I$(INCLUDES) -L. -lasm -o $(TEST)

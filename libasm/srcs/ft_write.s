@@ -9,10 +9,10 @@ _ft_write:
 .write:
 	mov rax, sys_write
 	syscall
-	jc .err
+	jc .error
 	ret
 
-.err:
+.error:
 	push rax
 	call ___error
 	pop rdx
