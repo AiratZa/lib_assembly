@@ -1,6 +1,8 @@
-%define sys_write 0x2000004 ;system call number for write
+%define sys_write 0x2000004 ; system call number for write
 section .text
 	global _ft_write
+	; ssize_t     ft_write(int fd, const void *buf, size_t count);
+	;rax				rdi			rsi				rdx
 	extern ___error
 
 _ft_write:

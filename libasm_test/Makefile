@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cacharle <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gdrake <gdrake@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/08 03:06:59 by cacharle          #+#    #+#              #
-#    Updated: 2020/04/12 20:12:48 by charles          ###   ########.fr        #
+#    Updated: 2020/09/20 10:03:38 by gdrake           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,6 @@ SRC = main.c \
 	  test/ft_write_test.c \
 	  test/ft_read_test.c \
 	  test/ft_strdup_test.c \
-	  test/ft_atoi_base_test.c \
-	  test/ft_list_size_test.c \
-	  test/ft_list_push_front_test.c \
-	  test/ft_list_sort_test.c \
-	  test/ft_list_remove_if_test.c \
 	  functions_reference/ref_ft_atoi_base.c \
 	  functions_reference/ref_ft_list_size.c \
 	  functions_reference/ref_ft_list_push_front.c \
